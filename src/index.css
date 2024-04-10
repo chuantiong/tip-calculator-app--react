@@ -1,9 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+
 :root {
-  
+  --clr-primary-1: #00474B;
+  --clr-primary-2: #26C2AE;
+  --clr-bg: #C5E4E7;
+  --clr-btn-text-light: #547878;
+  --clr-sm-display-label: #7F9D9F;
+  --clr-input-bg: #F3F9FA;
+  --clr-input-label: #5E7A7D;
+  --clr-input-focus: #26C2AE;
+  --clr-white: #fff;
 }
 
-*, 
-*::before, 
+*,
+*::before,
 *::after {
   box-sizing: border-box;
 }
@@ -11,8 +21,18 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: "Space Mono", monospace;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--clr-bg);
+}
+
+input,
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  padding: 0;
 }

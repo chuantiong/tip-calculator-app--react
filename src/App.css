@@ -1,1 +1,43 @@
+.main {
+    width: 100vw;
+}
 
+.logo {
+    display: block;
+    margin: 0 auto;
+}
+
+.container {
+    background-color: #fff;
+    width: 100vw;
+    padding: 2rem 1.5rem;
+}
+
+.input {
+    .input-label {
+        color: var(--clr-input-label);
+        font-size: 1rem;
+    }
+    
+    .input-field {
+        display: block;
+        width: 100%;
+        background-color: var(--clr-input-bg);
+        color: var(--clr-primary-1);
+        font-size: 1.5rem;
+        line-height: 0rem;
+        text-align: end;
+        margin-top: .375rem;
+        padding: .25em .75em .25em 2em;
+        border-radius: 5px;
+        /* background-image: url('./assets/icon-dollar.svg'); */
+        background-repeat: no-repeat;
+        background-position: 1.125rem center;
+        cursor: pointer;
+    }
+
+    .input-field:hover,
+    .input-field:focus {
+        outline: 2px solid var(--clr-input-focus);
+    }
+}
