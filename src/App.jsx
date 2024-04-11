@@ -8,29 +8,34 @@ import Label from './components/Label';
 import InputField from './components/InputField';
 import Buttons from './components/Buttons';
 import Button from './components/Button';
+import Display from './components/Display';
+import TotalAmount from './components/TotalAmount';
 import { buttonData } from './buttonData';
 
 const App = () => {
   const [tipSelect, setTipSelect] = useState(false);
 
   const handleTipToggle = (id) => {
-    setTipSelect(id)
+    setTipSelect(id === tipSelect ? false : id)
   };
 
   const handleCustomTip = () => {
-    setTipSelect(prevState => false)
+    setTipSelect(false)
   };
 
   return (
     <main className='main'>
-      <img className='logo' src={logo} alt="Splitter logo" />
-      <div className='container'>
+      <header>
+        <img className='logo' src={logo} alt="Splitter logo" />
+      </header>
+      <section className='container'>
         <div className="control">
           <Input>
             <Label htmlFor="bill">Bill</Label>
             <InputField
               url={dollarIcon}
               id="bill"
+              placeholder="0"
             />
           </Input>
           <Input>
@@ -42,10 +47,7 @@ const App = () => {
                   <Button
                     key={id}
                     onClick={() => handleTipToggle(id)}
-                    style={{
-                      backgroundColor: tipSelect === id ? "#26C2AE" : "",
-                      color: tipSelect === id ? "#00474B" : ""
-                    }}
+                    activeClass={tipSelect === id ? "active" : ""}
                   >
                     {value}
                   </Button>
@@ -54,6 +56,7 @@ const App = () => {
               <InputField
                 placeholder="Custom"
                 onClick={handleCustomTip}
+                customClass="input-field-custom"
               />
             </Buttons>
           </Input>
@@ -62,25 +65,24 @@ const App = () => {
             <InputField
               url={personIcon}
               id="number-of-people"
+              placeholder="0"
             />
           </Input>
         </div>
-        <div className="display">
-          <div className="display__wrapper">
-            <div className="display-label">Tip Amount
-              <span className='sm-label'>/ person</span>
-            </div>
-            <div className='numbers'></div>
-          </div>
-          <div className="display__wrapper">
-            <div className="display-label">Total
-              <span className='sm-label'>/ person</span>
-            </div>
-            <div className='numbers'></div>
-          </div>
-          <button className='reset-btn'>RESET</button>
-        </div>
-      </div>
+        <Display>
+          <TotalAmount
+            label="Tip Amount"
+          />
+          <TotalAmount
+            label="Total"
+          />
+          <Button
+            resetBtnClass="button-reset"
+          >
+            RESET
+          </Button>
+        </Display>
+      </section>
     </main>
   )
 };

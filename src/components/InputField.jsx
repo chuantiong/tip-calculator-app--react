@@ -1,9 +1,9 @@
 const InputField = (props) => {
-    const { url, id, placeholder, onClick } = props;
+    const { url, id, placeholder, onClick, customClass } = props;
 
     return (
         <input
-            className='input-field'
+            className={`input-field ${customClass || ""}`}
             style={{
                 backgroundImage: `url('${url}')`
             }}
