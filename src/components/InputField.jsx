@@ -1,5 +1,5 @@
 const InputField = (props) => {
-    const { url, id } = props;
+    const { url, id, placeholder, onClick } = props;
 
     return (
         <input
@@ -9,6 +9,8 @@ const InputField = (props) => {
             }}
             type="text"
             id={id}
+            placeholder={placeholder}
+            onClick={onClick}
         />
     );
 };

@@ -1,51 +1,69 @@
+import { useState } from 'react';
 import './App.css';
 import logo from './assets/logo.svg';
 import dollarIcon from './assets/icon-dollar.svg';
 import personIcon from './assets/icon-person.svg';
+import Input from './components/Input';
 import Label from './components/Label';
 import InputField from './components/InputField';
+import Buttons from './components/Buttons';
+import Button from './components/Button';
+import { buttonData } from './buttonData';
 
 const App = () => {
+  const [tipSelect, setTipSelect] = useState(false);
+
+  const handleTipToggle = (id) => {
+    setTipSelect(id)
+  };
+
+  const handleCustomTip = () => {
+    setTipSelect(prevState => false)
+  };
 
   return (
     <main className='main'>
       <img className='logo' src={logo} alt="Splitter logo" />
       <div className='container'>
-        <div className="inputs">
-          <div className='input'>
-            <Label
-              text="Bill"
-              for="bill"
-            />
+        <div className="control">
+          <Input>
+            <Label htmlFor="bill">Bill</Label>
             <InputField
               url={dollarIcon}
               id="bill"
             />
-          </div>
-          <div className="input">
-            <Label
-              text="Select Tip %"
-              for="select-tip"
-            />
-            <div className='buttons-wrapper'>
-              <button>5%</button>
-              <button>10%</button>
-              <button>15%</button>
-              <button>25%</button>
-              <button>50%</button>
-              <button>Custom%</button>
-            </div>
-          </div>
-          <div className="input">
-            <Label
-              text="Number of People"
-              for="number-of-people"
-            />
+          </Input>
+          <Input>
+            <Label htmlFor="select-tip">Select Tip %</Label>
+            <Buttons>
+              {buttonData.map((item) => {
+                const { id, value } = item
+                return (
+                  <Button
+                    key={id}
+                    onClick={() => handleTipToggle(id)}
+                    style={{
+                      backgroundColor: tipSelect === id ? "#26C2AE" : "",
+                      color: tipSelect === id ? "#00474B" : ""
+                    }}
+                  >
+                    {value}
+                  </Button>
+                )
+              })}
+              <InputField
+                placeholder="Custom"
+                onClick={handleCustomTip}
+              />
+            </Buttons>
+          </Input>
+          <Input>
+            <Label htmlFor="number-of-people">Number of People</Label>
             <InputField
               url={personIcon}
               id="number-of-people"
             />
-          </div>
+          </Input>
         </div>
         <div className="display">
           <div className="display__wrapper">
@@ -60,8 +78,8 @@ const App = () => {
             </div>
             <div className='numbers'></div>
           </div>
+          <button className='reset-btn'>RESET</button>
         </div>
-        <button className='reset-btn'>RESET</button>
       </div>
     </main>
   )

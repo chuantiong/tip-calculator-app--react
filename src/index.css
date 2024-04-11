@@ -5,10 +5,10 @@
   --clr-primary-2: #26C2AE;
   --clr-bg: #C5E4E7;
   --clr-btn-text-light: #547878;
+  --clr-btn-hover: #9FE8DF;
   --clr-sm-display-label: #7F9D9F;
   --clr-input-bg: #F3F9FA;
   --clr-input-label: #5E7A7D;
-  --clr-input-focus: #26C2AE;
   --clr-white: #fff;
 }
 
@@ -25,7 +25,6 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
   background-color: var(--clr-bg);
 }
 

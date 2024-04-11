@@ -1,8 +1,10 @@
-const Label = (props) => {
+const Label = ({ children, htmlFor }) => {
     return (
         <label
             className='input-label'
-            htmlFor={props.for}>{props.text}
+            htmlFor={htmlFor}
+        >
+            {children}
         </label>
     );
 };
