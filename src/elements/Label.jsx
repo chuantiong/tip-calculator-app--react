@@ -1,7 +1,7 @@
 const Label = ({ children, htmlFor }) => {
     return (
         <label
-            className='input-label'
+            className='label'
             htmlFor={htmlFor}
         >
             {children}
