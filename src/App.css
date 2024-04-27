@@ -207,6 +207,7 @@ Layout
         grid-template-columns: 379px 413px;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 6rem;
         padding: 2rem 2rem 2rem 3rem;
         border-radius: 25px;
     }
